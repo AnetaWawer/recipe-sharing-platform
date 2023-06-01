@@ -4,6 +4,9 @@ This bare-bone project provides you with some components and dependencies
 to support you through your journey. Hopefully they can help you speed up
 the development of your challenge!
 
+**NOTE:** If you want to develop in Kotlin we provide this exact same repository
+using Kotlin, click [here](https://gitlab.com/azeti1-public/recipe-sharing-challenge-be-kotlin) for the repository.
+
 ## Project Details
 
 This project requires:
