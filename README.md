@@ -23,6 +23,36 @@ Your task is to build the backend functionality for a Recipe Sharing Platform. T
 4. Provide an endpoint to retrieve a list of recipes created by a specific user.
 5. All recipe management endpoints require authentication.
 
+#### Ingredients
+
+When looking at the ingredients, we see a 1:n relationship between the recipe and ingredients. Therefore, it's 
+recommended to manage ingredients in a second table with at least four columns:
+* recipe_id
+* value
+* unit
+* type
+
+_Useful Units_
+
+| unit  | comment    |
+|-------|------------|
+| g     | Gram       |
+| kg    | Kilogram   |
+| ml    | Milliliter |
+| l     | Liter      |
+| pc    | Piece      |
+| tsp   | Teaspoon   |
+| tbsp  | Tablespoon |
+| pinch | A dash     |
+
+_Examples_
+
+| value | unit | type |
+|-------|------|------|
+| 8     | pcs  | egg  |
+| .05   | l    | milk |
+| 1     | dash | salt |
+
 ### Recipe Search
 
 1. Implement a search functionality that allows users to search for recipes based on the following criteria:
