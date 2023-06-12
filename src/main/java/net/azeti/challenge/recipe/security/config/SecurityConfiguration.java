@@ -1,4 +1,4 @@
-package net.azeti.challenge.recipe;
+package net.azeti.challenge.recipe.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
