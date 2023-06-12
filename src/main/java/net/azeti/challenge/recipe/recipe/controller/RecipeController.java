@@ -21,6 +21,14 @@ public class RecipeController {
     public Optional<Recipe> getRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.getRecipeById(recipeId);
     }
+    @GetMapping("/user/{username}")
+    public List<Recipe> getRecipesByUsername(@PathVariable String username){
+        return recipeService.getRecipesByUsername(username);
+    }
+    @GetMapping("/search/{title}")
+    public List<Recipe> getRecipesByTitle(@PathVariable String title){
+        return recipeService.getRecipesByTitle(title);
+    }
     @DeleteMapping("/{recipe_id}")
     public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.deleteRecipeById(recipeId);

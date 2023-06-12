@@ -7,6 +7,7 @@ import net.azeti.challenge.recipe.recipe.repository.RecipeRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,12 @@ public class RecipeService {
     }
     public Optional<Recipe> getRecipeById(Long recipeId) {
         return recipeRepository.findById(recipeId);
+    }
+    public List<Recipe> getRecipesByUsername(String username) {
+        return new ArrayList<>();
+    }
+    public List<Recipe> getRecipesByTitle(String title) {
+        return new ArrayList<>();
     }
     public Optional<Recipe> deleteRecipeById(Long recipeId) {
         Optional<Recipe> recipeToDelete = getRecipeById(recipeId);
