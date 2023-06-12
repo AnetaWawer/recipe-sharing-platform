@@ -44,7 +44,14 @@ public class RecipeService {
         return newRecipe;
     }
     public void updateRecipe(Long recipeId, Recipe recipe) {
-
+        Recipe updatedRecipe = recipeRepository.findById(recipeId).orElseThrow();
+        List<Ingredients> ingredients = ingredientsRepository.findAllByRecipeId(recipeId);
+        updatedRecipe.setTitle(recipe.getTitle());
+        updatedRecipe.setDescription(recipe.getDescription());
+        updatedRecipe.setServings(recipe.getServings());
+        updatedRecipe.setIngredients(recipe.getIngredients());
+        updatedRecipe.setInstructions(recipe.getInstructions());
+        recipeRepository.save(updatedRecipe);
     }
     public Optional<Recipe> deleteRecipeById(Long recipeId) {
         Optional<Recipe> recipeToDelete = getRecipeById(recipeId);
