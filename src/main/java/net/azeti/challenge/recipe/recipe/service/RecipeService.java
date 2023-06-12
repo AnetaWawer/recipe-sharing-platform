@@ -31,10 +31,15 @@ public class RecipeService {
     public Recipe createRecipe(Recipe recipe) {
         return recipe;
     }
+    public void updateRecipe(Long recipeId, Recipe recipe) {
+
+    }
     public Optional<Recipe> deleteRecipeById(Long recipeId) {
         Optional<Recipe> recipeToDelete = getRecipeById(recipeId);
         ingredientsRepository.deleteAllByRecipeId(recipeId);
         recipeRepository.deleteById(recipeId);
         return recipeToDelete;
     }
+
+
 }
