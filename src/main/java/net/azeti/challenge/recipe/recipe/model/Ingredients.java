@@ -1,5 +1,6 @@
 package net.azeti.challenge.recipe.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +16,7 @@ public class Ingredients {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Recipe recipe;
     private double value;
     private Units unit;
