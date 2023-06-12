@@ -17,4 +17,10 @@ public class AuthenticationService {
                 .build();
         userRepository.save(user);
     }
+    public boolean isEmailNotUnique(Registration registration){
+        return userRepository.existsUserByEmail(registration.getEmail());
+    }
+    public boolean isUsernameNotUnique(Registration registration){
+        return userRepository.existsUserByUsername(registration.getUsername());
+    }
 }
