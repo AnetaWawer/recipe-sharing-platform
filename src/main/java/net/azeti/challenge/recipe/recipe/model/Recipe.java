@@ -1,4 +1,4 @@
-package net.azeti.challenge.recipe.recipe;
+package net.azeti.challenge.recipe.recipe.model;
 
 import jakarta.persistence.*;
 import lombok.*;
