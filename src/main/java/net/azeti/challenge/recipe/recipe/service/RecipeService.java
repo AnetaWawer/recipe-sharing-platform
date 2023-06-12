@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -14,5 +15,8 @@ public class RecipeService {
     private final RecipeRepository recipeRepository;
     public List<Recipe> getAllRecipes(){
         return recipeRepository.findAll(Sort.by(Sort.Direction.ASC, "title"));
+    }
+    public Optional<Recipe> getRecipeById(Long recipeId) {
+        return recipeRepository.findById(recipeId);
     }
 }
