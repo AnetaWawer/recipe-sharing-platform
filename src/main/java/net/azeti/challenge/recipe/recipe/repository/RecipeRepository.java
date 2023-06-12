@@ -11,4 +11,6 @@ import java.util.List;
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     @Query("SELECT r FROM Recipe r WHERE r.title like %:title%")
     List<Recipe> findAllByTitle(String title);
+    @Query("SELECT r FROM Recipe r WHERE r.username like %:username%")
+    List<Recipe> findAllByUsername(String username);
 }

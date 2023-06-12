@@ -23,7 +23,7 @@ public class RecipeService {
         return recipeRepository.findById(recipeId);
     }
     public List<Recipe> getRecipesByUsername(String username) {
-        return new ArrayList<>();
+        return recipeRepository.findAllByUsername(username);
     }
     public List<Recipe> getRecipesByTitle(String title) {
         return recipeRepository.findAllByTitle(title);
