@@ -26,7 +26,7 @@ public class RecipeService {
         return new ArrayList<>();
     }
     public List<Recipe> getRecipesByTitle(String title) {
-        return new ArrayList<>();
+        return recipeRepository.findAllByTitle(title);
     }
     public Recipe createRecipe(Recipe recipe) {
         return recipe;
@@ -40,6 +40,4 @@ public class RecipeService {
         recipeRepository.deleteById(recipeId);
         return recipeToDelete;
     }
-
-
 }
