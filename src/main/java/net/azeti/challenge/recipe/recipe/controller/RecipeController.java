@@ -29,6 +29,10 @@ public class RecipeController {
     public List<Recipe> getRecipesByTitle(@PathVariable String title){
         return recipeService.getRecipesByTitle(title);
     }
+    @PostMapping("/")
+    public void createRecipe(@RequestBody Recipe recipe){
+        recipeService.createRecipe(recipe);
+    }
     @DeleteMapping("/{recipe_id}")
     public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.deleteRecipeById(recipeId);

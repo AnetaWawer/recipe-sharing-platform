@@ -28,6 +28,9 @@ public class RecipeService {
     public List<Recipe> getRecipesByTitle(String title) {
         return new ArrayList<>();
     }
+    public Recipe createRecipe(Recipe recipe) {
+        return recipe;
+    }
     public Optional<Recipe> deleteRecipeById(Long recipeId) {
         Optional<Recipe> recipeToDelete = getRecipeById(recipeId);
         ingredientsRepository.deleteAllByRecipeId(recipeId);
