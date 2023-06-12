@@ -1,13 +1,13 @@
 package net.azeti.challenge.recipe.recipe.service;
 
 import lombok.RequiredArgsConstructor;
+import net.azeti.challenge.recipe.recipe.model.Ingredients;
 import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.repository.IngredientsRepository;
 import net.azeti.challenge.recipe.recipe.repository.RecipeRepository;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +29,19 @@ public class RecipeService {
         return recipeRepository.findAllByTitle(title);
     }
     public Recipe createRecipe(Recipe recipe) {
-        return recipe;
+        Recipe newRecipe = new Recipe();
+        newRecipe.setDescription(recipe.getDescription());
+        newRecipe.setInstructions(recipe.getInstructions());
+        newRecipe.setServings(recipe.getServings());
+        newRecipe.setTitle(recipe.getTitle());
+        newRecipe.setIngredients(recipe.getIngredients());
+        List<Ingredients> newIngredients = recipe.getIngredients();
+        recipeRepository.save(newRecipe);
+        for (Ingredients newIngredient : newIngredients) {
+            newIngredient.setRecipe(newRecipe);
+        }
+        ingredientsRepository.saveAll(newIngredients);
+        return newRecipe;
     }
     public void updateRecipe(Long recipeId, Recipe recipe) {
 
