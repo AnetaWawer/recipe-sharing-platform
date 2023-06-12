@@ -1,6 +1,7 @@
 package net.azeti.challenge.recipe.security.authentication;
 
 import lombok.RequiredArgsConstructor;
+import net.azeti.challenge.recipe.security.token.Token;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,5 +23,9 @@ public class AuthenticationController {
         }
         authenticationService.register(registration);
         return ResponseEntity.accepted().body("User account created.");
+    }
+    @PostMapping("/login")
+    public ResponseEntity<Token> login(@RequestBody Login loginDetails){
+        return ResponseEntity.ok(authenticationService.login(loginDetails));
     }
 }
