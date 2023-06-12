@@ -3,10 +3,7 @@ package net.azeti.challenge.recipe.recipe.controller;
 import lombok.RequiredArgsConstructor;
 import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.service.RecipeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,5 +20,9 @@ public class RecipeController {
     @GetMapping("/{recipe_id}")
     public Optional<Recipe> getRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.getRecipeById(recipeId);
+    }
+    @DeleteMapping("/{recipe_id}")
+    public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
+        return recipeService.deleteRecipeById(recipeId);
     }
 }
