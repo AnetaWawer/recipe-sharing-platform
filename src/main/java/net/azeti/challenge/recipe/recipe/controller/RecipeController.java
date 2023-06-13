@@ -15,6 +15,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/api/recipes")
 public class RecipeController {
+    private static final int MIN_OUTSIDE_TEMPERATURE_TO_GET_NON_BAKING_RECIPES = 20;
+    private static final int MIN_OUTSIDE_TEMPERATURE_TO_AVOID_RECIPES_WITH_FROZEN_INGREDIENTS = 5;
     private final RecipeService recipeService;
     @GetMapping("/")
     public List<Recipe> getRecipes(){
@@ -48,9 +50,9 @@ public class RecipeController {
     }
     @GetMapping("/recommended/{temperature}")
     public List<Recipe> getRecommendedRecipes(@PathVariable int temperature){
-        if(temperature>=20){
+        if(temperature>=MIN_OUTSIDE_TEMPERATURE_TO_GET_NON_BAKING_RECIPES){
             return recipeService.getRecipesNotRequiringBaking();
-        } else if(temperature<=5){
+        } else if(temperature<=MIN_OUTSIDE_TEMPERATURE_TO_AVOID_RECIPES_WITH_FROZEN_INGREDIENTS){
             return recipeService.getRecipesNotUsingFrozenIngredients();
         } else {
             return recipeService.getAllRecipes();
