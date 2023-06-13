@@ -23,7 +23,7 @@ public class ExceptionHandlerControllerAdvice {
     }
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<String> handleEmptyFieldsException(ConstraintViolationException exception){
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ensure that title, ingredient, instruction fields are not empty!");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ensure that fields are not empty!");
     }
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException exception){
