@@ -471,6 +471,7 @@ Returns recipes that are not using frozen ingredients if outside temperature is 
 | temperature | required | int       | Temperature chosen by user |
 
 
+**Example request** : `/api/recipes/recommended?temperature=30`
 
 **Authentication required** : YES
 
