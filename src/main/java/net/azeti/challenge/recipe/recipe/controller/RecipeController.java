@@ -1,8 +1,11 @@
 package net.azeti.challenge.recipe.recipe.controller;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.service.RecipeService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,13 +33,15 @@ public class RecipeController {
         return recipeService.getRecipesByTitle(title);
     }
     @PostMapping("/")
-    public void createRecipe(@RequestBody Recipe recipe){
-        recipeService.createRecipe(recipe);
+    public void createRecipe(@RequestBody Recipe recipe, @AuthenticationPrincipal UserDetails user){
+        recipeService.createRecipe(recipe, user);
     }
+
     @PutMapping("/{recipe_id}")
     public void updateRecipe(@PathVariable("recipe_id") Long recipeId, @RequestBody Recipe recipe){
         recipeService.updateRecipe(recipeId, recipe);
     }
+    @Transactional
     @DeleteMapping("/{recipe_id}")
     public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.deleteRecipeById(recipeId);
