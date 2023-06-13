@@ -63,6 +63,13 @@ public class RecipeControllerTest {
         assertEquals(exampleRecipe1, actualRecipe);
     }
     @Test
+    void shouldReturnRecipesByUserId(){
+        when(recipeService.getRecipesByUserId(any(Long.class))).thenReturn(exampleRecipes);
+        List<Recipe> actualRecipes = recipeController.getRecipesByUserId(1L);
+        assertEquals(2, actualRecipes.size());
+        assertEquals(exampleRecipes, actualRecipes);
+    }
+    @Test
     void shouldReturnRecipeByUsername(){
         String searchDetails = "John";
         List<Recipe> filteredRecipes = exampleRecipes.stream()
