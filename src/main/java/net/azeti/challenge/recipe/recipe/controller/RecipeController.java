@@ -27,12 +27,12 @@ public class RecipeController {
     public Optional<Recipe> getRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.getRecipeById(recipeId);
     }
-    @GetMapping("/user/{username}")
-    public List<Recipe> getRecipesByUsername(@PathVariable String username){
+    @GetMapping("/users/search")
+    public List<Recipe> getRecipesByUsername(@RequestParam(value = "username") String username){
         return recipeService.getRecipesByUsername(username);
     }
-    @GetMapping("/search/{title}")
-    public List<Recipe> getRecipesByTitle(@PathVariable String title){
+    @GetMapping("/search")
+    public List<Recipe> getRecipesByTitle(@RequestParam(value = "title") String title){
         return recipeService.getRecipesByTitle(title);
     }
     @PostMapping("/")
@@ -49,8 +49,8 @@ public class RecipeController {
     public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.deleteRecipeById(recipeId);
     }
-    @GetMapping("/recommended/{temperature}")
-    public List<Recipe> getRecommendedRecipes(@PathVariable int temperature){
+    @GetMapping("/recommended")
+    public List<Recipe> getRecommendedRecipes(@RequestParam(value = "temperature") int temperature){
         if(temperature>=MIN_OUTSIDE_TEMPERATURE_TO_GET_NON_BAKING_RECIPES){
             return recipeService.getRecipesNotRequiringBaking();
         } else if(temperature<=MIN_OUTSIDE_TEMPERATURE_TO_AVOID_RECIPES_WITH_FROZEN_INGREDIENTS){
