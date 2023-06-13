@@ -9,12 +9,14 @@ import java.util.List;
 
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
-    @Query("SELECT r FROM Recipe r WHERE r.title like %:title%")
+    @Query("SELECT r FROM Recipe r WHERE r.title LIKE %:title%")
     List<Recipe> findAllByTitle(String title);
-    @Query("SELECT r FROM Recipe r WHERE r.username like %:username%")
+    @Query("SELECT r FROM Recipe r WHERE r.username LIKE %:username%")
     List<Recipe> findAllByUsername(String username);
-    @Query("SELECT r FROM Recipe r WHERE lower(r.instructions) not like '%bake%' ")
+    @Query("SELECT r FROM Recipe r WHERE lower(r.instructions) NOT LIKE '%bake%' ")
     List<Recipe> findAllNonBakedRecipes();
-    @Query("SELECT r FROM Recipe r WHERE NOT exists (select i from r.ingredients i where i.type like '%frozen%') ")
+    @Query("SELECT r FROM Recipe r WHERE NOT EXISTS (SELECT i FROM r.ingredients i WHERE i.type LIKE '%frozen%') ")
     List<Recipe> findAllWithNonFrozenIngredients();
+    @Query("SELECT r FROM Recipe r WHERE r.username = (SELECT u.username FROM User u WHERE u.id = :userId)")
+    List<Recipe> findAllByUserId(Long userId);
 }
