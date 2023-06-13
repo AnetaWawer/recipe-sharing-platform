@@ -33,16 +33,16 @@ public class SecurityConfigurationTest {
     void securedEndpointsAreAccessibleWithMockUser() throws Exception {
         mockMvc.perform(get("/api/recipes/")).andExpect(status().isOk());
         mockMvc.perform(get("/api/recipes/1")).andExpect(status().isOk());
-        mockMvc.perform(get("/api/recipes/user/John")).andExpect(status().isOk());
-        mockMvc.perform(get("/api/recipes/search/pizza")).andExpect(status().isOk());
-        mockMvc.perform(get("/api/recipes/recommended/5")).andExpect(status().isOk());
+        mockMvc.perform(get("/api/recipes/users/search?username=John")).andExpect(status().isOk());
+        mockMvc.perform(get("/api/recipes/search?title=pizza")).andExpect(status().isOk());
+        mockMvc.perform(get("/api/recipes/recommended?temperature=5")).andExpect(status().isOk());
     }
     @Test
     void securedEndpointsAreNotAccessibleWithoutMockUser() throws Exception {
         mockMvc.perform(get("/api/recipes/")).andExpect(status().isUnauthorized());
         mockMvc.perform(get("/api/recipes/1")).andExpect(status().isUnauthorized());
-        mockMvc.perform(get("/api/recipes/user/John")).andExpect(status().isUnauthorized());
-        mockMvc.perform(get("/api/recipes/search/pizza")).andExpect(status().isUnauthorized());
-        mockMvc.perform(get("/api/recipes/recommended/5")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/recipes/users/search?username=John")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/recipes/search?title=pizza")).andExpect(status().isUnauthorized());
+        mockMvc.perform(get("/api/recipes/recommended?temperature=5")).andExpect(status().isUnauthorized());
     }
 }
