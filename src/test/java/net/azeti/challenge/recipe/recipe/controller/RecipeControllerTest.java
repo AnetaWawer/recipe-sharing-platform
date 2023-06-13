@@ -4,7 +4,6 @@ import net.azeti.challenge.recipe.recipe.model.Ingredients;
 import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.model.Units;
 import net.azeti.challenge.recipe.recipe.repository.IngredientsRepository;
-import net.azeti.challenge.recipe.recipe.repository.RecipeRepository;
 import net.azeti.challenge.recipe.recipe.service.RecipeService;
 import net.azeti.challenge.recipe.user.model.User;
 import net.azeti.challenge.recipe.user.repository.UserRepository;
