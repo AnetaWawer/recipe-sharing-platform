@@ -173,7 +173,7 @@ Used to fetch recipe with specific recipe id.
 
 Used to collect all recipes created by specific user.
 
-**URL** : `/api/recipes/user/{username}`
+**URL** : `/api/recipes/users/search`
 
 **Method** : `GET`
 
@@ -184,6 +184,7 @@ Used to collect all recipes created by specific user.
 | username | required | String    | Match or partial match of unique username |
 
 
+**Example request** : `/api/recipes/users/search?username=John`
 
 **Authentication required** : YES
 
@@ -209,7 +210,7 @@ Used to collect all recipes created by specific user.
 
 Used to collect all recipes with specific title.
 
-**URL** : `/api/recipes/search/{title}`
+**URL** : `/api/recipes/search/`
 
 **Method** : `GET`
 
@@ -220,6 +221,7 @@ Used to collect all recipes with specific title.
 | title | required | String    | Match or partial match of recipe title |
 
 
+**Example request** : `/api/recipes/search?title=Pizza`
 
 **Authentication required** : YES
 
@@ -458,7 +460,7 @@ Used to delete recipe with specific recipe identifier.
 Used to collect recipes based on weather forecast. 
 Returns recipes that are not using frozen ingredients if outside temperature is lower than 5C or returns recipes that do not require baking if outside temperature is higher than 20C.
 
-**URL** : `/api/recipes/recommended/{temperature}`
+**URL** : `/api/recipes/recommended`
 
 **Method** : `GET`
 
