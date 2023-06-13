@@ -27,8 +27,8 @@ public class RecipeController {
     public Optional<Recipe> getRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.getRecipeById(recipeId);
     }
-    @GetMapping("/users/{recipe_id}")
-    public List<Recipe> getRecipesByUserId(@PathVariable("recipe_id") Long userId){
+    @GetMapping("/users/{user_id}")
+    public List<Recipe> getRecipesByUserId(@PathVariable("user_id") Long userId){
         return recipeService.getRecipesByUserId(userId);
     }
     @GetMapping("/users/search")
