@@ -6,6 +6,7 @@ import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.repository.IngredientsRepository;
 import net.azeti.challenge.recipe.recipe.repository.RecipeRepository;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,12 +29,13 @@ public class RecipeService {
     public List<Recipe> getRecipesByTitle(String title) {
         return recipeRepository.findAllByTitle(title);
     }
-    public Recipe createRecipe(Recipe recipe) {
+    public Recipe createRecipe(Recipe recipe, UserDetails user) {
         Recipe newRecipe = new Recipe();
         newRecipe.setDescription(recipe.getDescription());
         newRecipe.setInstructions(recipe.getInstructions());
         newRecipe.setServings(recipe.getServings());
         newRecipe.setTitle(recipe.getTitle());
+        newRecipe.setUsername(user.getUsername());
         newRecipe.setIngredients(recipe.getIngredients());
         List<Ingredients> newIngredients = recipe.getIngredients();
         recipeRepository.save(newRecipe);
@@ -49,9 +51,13 @@ public class RecipeService {
         updatedRecipe.setTitle(recipe.getTitle());
         updatedRecipe.setDescription(recipe.getDescription());
         updatedRecipe.setServings(recipe.getServings());
-        updatedRecipe.setIngredients(recipe.getIngredients());
         updatedRecipe.setInstructions(recipe.getInstructions());
+        for (Ingredients ingredient : recipe.getIngredients()) {
+            ingredient.setRecipe(updatedRecipe);
+        }
+        ingredientsRepository.saveAll(recipe.getIngredients());
         recipeRepository.save(updatedRecipe);
+        ingredientsRepository.deleteAll(ingredients);
     }
     public Optional<Recipe> deleteRecipeById(Long recipeId) {
         Optional<Recipe> recipeToDelete = getRecipeById(recipeId);
