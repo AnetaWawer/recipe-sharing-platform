@@ -5,7 +5,6 @@ import net.azeti.challenge.recipe.recipe.model.Ingredients;
 import net.azeti.challenge.recipe.recipe.model.Recipe;
 import net.azeti.challenge.recipe.recipe.repository.IngredientsRepository;
 import net.azeti.challenge.recipe.recipe.repository.RecipeRepository;
-import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,7 @@ public class RecipeService {
     private final RecipeRepository recipeRepository;
     private final IngredientsRepository ingredientsRepository;
     public List<Recipe> getAllRecipes(){
-        return recipeRepository.findAll(Sort.by(Sort.Direction.ASC, "title"));
+        return recipeRepository.findAll();
     }
     public Optional<Recipe> getRecipeById(Long recipeId) {
         return recipeRepository.findById(recipeId);
