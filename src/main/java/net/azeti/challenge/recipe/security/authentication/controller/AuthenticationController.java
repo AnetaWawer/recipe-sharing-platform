@@ -1,6 +1,9 @@
-package net.azeti.challenge.recipe.security.authentication;
+package net.azeti.challenge.recipe.security.authentication.controller;
 
 import lombok.RequiredArgsConstructor;
+import net.azeti.challenge.recipe.security.authentication.service.AuthenticationService;
+import net.azeti.challenge.recipe.security.authentication.model.Login;
+import net.azeti.challenge.recipe.security.authentication.model.Registration;
 import net.azeti.challenge.recipe.security.token.Token;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

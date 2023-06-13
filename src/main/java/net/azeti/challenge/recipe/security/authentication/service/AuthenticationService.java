@@ -1,6 +1,8 @@
-package net.azeti.challenge.recipe.security.authentication;
+package net.azeti.challenge.recipe.security.authentication.service;
 
 import lombok.RequiredArgsConstructor;
+import net.azeti.challenge.recipe.security.authentication.model.Login;
+import net.azeti.challenge.recipe.security.authentication.model.Registration;
 import net.azeti.challenge.recipe.security.jwt.JwtService;
 import net.azeti.challenge.recipe.security.token.Token;
 import net.azeti.challenge.recipe.user.model.User;
