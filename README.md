@@ -466,7 +466,7 @@ Returns recipes that are not using frozen ingredients if outside temperature is 
 
 | name        | type     | data type | description                |
 |-------------|----------|-----------|----------------------------|
-| temperature | required | String    | Temperature chosen by user |
+| temperature | required | int       | Temperature chosen by user |
 
 
 
