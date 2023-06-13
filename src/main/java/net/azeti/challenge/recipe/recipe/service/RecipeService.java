@@ -65,4 +65,10 @@ public class RecipeService {
         recipeRepository.deleteById(recipeId);
         return recipeToDelete;
     }
+    public List<Recipe> getRecipesNotRequiringBaking(){
+        return recipeRepository.findAllNonBakedRecipes();
+    }
+    public List<Recipe> getRecipesNotUsingFrozenIngredients(){
+        return recipeRepository.findAllWithNonFrozenIngredients();
+    }
 }

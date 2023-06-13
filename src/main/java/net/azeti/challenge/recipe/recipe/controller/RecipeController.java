@@ -46,4 +46,14 @@ public class RecipeController {
     public Optional<Recipe> deleteRecipeById(@PathVariable("recipe_id") Long recipeId){
         return recipeService.deleteRecipeById(recipeId);
     }
+    @GetMapping("/recommended/{temperature}")
+    public List<Recipe> getRecommendedRecipes(@PathVariable int temperature){
+        if(temperature>=20){
+            return recipeService.getRecipesNotRequiringBaking();
+        } else if(temperature<=5){
+            return recipeService.getRecipesNotUsingFrozenIngredients();
+        } else {
+            return recipeService.getAllRecipes();
+        }
+    }
 }
