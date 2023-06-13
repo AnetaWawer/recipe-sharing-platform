@@ -119,6 +119,40 @@ Used to collect all recipes.
 
 **Code** : `200 OK`
 
+**Example response**
+```json
+[
+  {
+    "id": 2,
+    "title": "Pizza margherita",
+    "username": "John",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+    "ingredients": [
+      {
+        "id": 7,
+        "value": 1.0,
+        "unit": "PC",
+        "type": "pizza dough"
+      },
+      {
+        "id": 8,
+        "value": 200.0,
+        "unit": "ML",
+        "type": "pizza sauce"
+      },
+      {
+        "id": 9,
+        "value": 200.0,
+        "unit": "G",
+        "type": "sliced mozarella"
+      }
+    ],
+    "instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+    "servings": 4
+  }
+]
+```
+
 ### Error Response
 
 **Condition** : If user is not authorized.
@@ -154,6 +188,108 @@ Used to fetch recipe with specific recipe id.
 ###  Success Response
 
 **Code** : `200 OK`
+
+**Example response**
+```json
+{
+"id": 2,
+"title": "Pizza margherita",
+"username": "John",
+"description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+"ingredients": [
+  {
+    "id": 7,
+    "value": 1.0,
+    "unit": "PC",
+    "type": "pizza dough"
+  },
+  {
+    "id": 8,
+    "value": 200.0,
+    "unit": "ML",
+    "type": "pizza sauce"
+  },
+  {
+    "id": 9,
+    "value": 200.0,
+    "unit": "G",
+    "type": "sliced mozarella"
+  }
+],
+"instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+"servings": 4
+}
+```
+
+### Error Response
+
+**Condition** : If user is not authorized.
+
+**Code** : `401 Unauthorized`
+
+**Content** :
+
+```
+"You need to be logged in to perform this action"
+```
+</details>
+
+<details> 
+<summary> Get recipe by user id</summary>
+
+Used to fetch recipe with specific recipe id.
+
+**URL** : `/api/recipes/users/{user_id}`
+
+**Method** : `GET`
+
+**Parameters** :
+
+| name    | type     | data type | description                         |
+|---------|----------|-----------|-------------------------------------|
+| user_id | required | Long      | The specific user unique identifier |
+
+
+
+**Authentication required** : YES
+
+###  Success Response
+
+**Code** : `200 OK`
+
+**Example response**
+```json
+[
+  {
+    "id": 2,
+    "title": "Pizza margherita",
+    "username": "John",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+    "ingredients": [
+      {
+        "id": 7,
+        "value": 1.0,
+        "unit": "PC",
+        "type": "pizza dough"
+      },
+      {
+        "id": 8,
+        "value": 200.0,
+        "unit": "ML",
+        "type": "pizza sauce"
+      },
+      {
+        "id": 9,
+        "value": 200.0,
+        "unit": "G",
+        "type": "sliced mozarella"
+      }
+    ],
+    "instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+    "servings": 4
+  }
+]
+```
 
 ### Error Response
 
@@ -192,6 +328,40 @@ Used to collect all recipes created by specific user.
 
 **Code** : `200 OK`
 
+**Example response**
+```json
+[
+  {
+    "id": 2,
+    "title": "Pizza margherita",
+    "username": "John",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+    "ingredients": [
+      {
+        "id": 7,
+        "value": 1.0,
+        "unit": "PC",
+        "type": "pizza dough"
+      },
+      {
+        "id": 8,
+        "value": 200.0,
+        "unit": "ML",
+        "type": "pizza sauce"
+      },
+      {
+        "id": 9,
+        "value": 200.0,
+        "unit": "G",
+        "type": "sliced mozarella"
+      }
+    ],
+    "instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+    "servings": 4
+  }
+]
+```
+
 ### Error Response
 
 **Condition** : If user is not authorized.
@@ -228,6 +398,40 @@ Used to collect all recipes with specific title.
 ###  Success Response
 
 **Code** : `200 OK`
+
+**Example response**
+```json
+[
+  {
+    "id": 2,
+    "title": "Pizza margherita",
+    "username": "John",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+    "ingredients": [
+      {
+        "id": 7,
+        "value": 1.0,
+        "unit": "PC",
+        "type": "pizza dough"
+      },
+      {
+        "id": 8,
+        "value": 200.0,
+        "unit": "ML",
+        "type": "pizza sauce"
+      },
+      {
+        "id": 9,
+        "value": 200.0,
+        "unit": "G",
+        "type": "sliced mozarella"
+      }
+    ],
+    "instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+    "servings": 4
+  }
+]
+```
 
 ### Error Response
 
@@ -478,6 +682,40 @@ Returns recipes that are not using frozen ingredients if outside temperature is 
 ###  Success Response
 
 **Code** : `200 OK`
+
+**Example response**
+```json
+[
+  {
+    "id": 2,
+    "title": "Pizza margherita",
+    "username": "John",
+    "description": "Pizza Margherita is a typical Neapolitan pizza, made with San Marzano tomatoes and mozzarella cheese.",
+    "ingredients": [
+      {
+        "id": 7,
+        "value": 1.0,
+        "unit": "PC",
+        "type": "pizza dough"
+      },
+      {
+        "id": 8,
+        "value": 200.0,
+        "unit": "ML",
+        "type": "pizza sauce"
+      },
+      {
+        "id": 9,
+        "value": 200.0,
+        "unit": "G",
+        "type": "sliced mozarella"
+      }
+    ],
+    "instructions": "Preheat oven to 200C. Prepare all ingredients for the margherita pizza.On a floured surface, roll the dough into the desired shape. Top it off with pizza sauce, pieces of fresh mozzarella.Bake pizza for about 14 minutes or until the crust is lightly browned and the cheese is golden.Remove pizza from the oven.",
+    "servings": 4
+  }
+]
+```
 
 ### Error Response
 
