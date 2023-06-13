@@ -1,6 +1,7 @@
 package net.azeti.challenge.recipe.user.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,8 +19,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
+    @Column(unique=true)
     private String username;
+    @NotEmpty
+    @Column(unique=true)
     private String email;
+    @NotEmpty
     private String password;
     @Override
     public boolean isAccountNonExpired() {
