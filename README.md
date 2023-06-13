@@ -1,7 +1,8 @@
 # RECIPE SHARING PLATFORM API DOCUMENTATION
 
 #### Welcome to the Recipe Sharing Platform API Documentation.
-#### The platform allows users to crate an account, log in and perform various operations such as creating, updating, and deleting recipes, as well as searching for recipes based on different criteria.
+
+The platform allows users to crate an account, log in and perform various operations such as creating, updating, and deleting recipes, as well as searching for recipes based on different criteria.
 
 
 # API Endpoints
