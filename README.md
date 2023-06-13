@@ -237,7 +237,7 @@ Used to fetch recipe with specific recipe id.
 <details> 
 <summary> Get recipe by user id</summary>
 
-Used to fetch recipe with specific recipe id.
+Used to fetch recipes crated by user based on user id.
 
 **URL** : `/api/recipes/users/{user_id}`
 
